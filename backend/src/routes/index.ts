@@ -1,0 +1,53 @@
+import { Router } from 'express';
+import authRoutes from './auth.routes';
+import assignmentRoutes from './assignment.routes';
+import studentRoutes from './student.routes';
+import academicsRoutes from './academics.routes';
+import attendanceRoutes from './attendance.routes';
+import mentoringRoutes from './mentoring.routes';
+import projectRoutes from './project.routes';
+import internshipRoutes from './internship.routes';
+import certificationRoutes from './certification.routes';
+import achievementRoutes from './achievement.routes';
+import skillRoutes from './skill.routes';
+import careerRoutes from './career.routes';
+import jobRoutes from './job.routes';
+import placementRoutes from './placement.routes';
+import higherEducationRoutes from './higherEducation.routes';
+import examRoutes from './exam.routes';
+import resumeRoutes from './resume.routes';
+import notificationRoutes from './notification.routes';
+import adminRoutes from './admin.routes';
+import uploadRoutes from './upload.routes';
+import aiRoutes from './ai.routes';
+
+const router = Router();
+
+router.use('/ai', aiRoutes);
+
+router.use('/auth', authRoutes);
+router.use('/assignments', assignmentRoutes);
+router.use('/students', studentRoutes);
+router.use('/academics', academicsRoutes);
+router.use('/attendance', attendanceRoutes);
+router.use('/mentoring', mentoringRoutes);
+router.use('/projects', projectRoutes);
+router.use('/internships', internshipRoutes);
+router.use('/certifications', certificationRoutes);
+router.use('/achievements', achievementRoutes);
+router.use('/skills', skillRoutes);
+router.use('/careers', careerRoutes);
+router.use('/career', careerRoutes);
+router.use('/jobs', jobRoutes);
+router.use('/placements', placementRoutes);
+router.use('/placement', placementRoutes);
+router.use('/higher-education', higherEducationRoutes);
+router.use('/exams', examRoutes);
+router.use('/exam', examRoutes);
+router.use('/resumes', resumeRoutes);
+router.use('/resume', resumeRoutes);
+router.use('/notifications', notificationRoutes);
+router.use('/admin', adminRoutes);
+router.use('/upload', uploadRoutes);
+
+export default router;

@@ -1,0 +1,33 @@
+import mongoose, { Document, Schema } from 'mongoose';
+
+export interface IAuditLog extends Document {
+  user?: mongoose.Types.ObjectId;
+  userEmail?: string;
+  userRole?: string;
+  action: string;
+  entity: string;
+  entityId?: string;
+  details?: any;
+  ipAddress?: string;
+  userAgent?: string;
+  createdAt: Date;
+}
+
+const AuditLogSchema = new Schema<IAuditLog>(
+  {
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    userEmail: { type: String },
+    userRole: { type: String },
+    action: { type: String, required: true, index: true },
+    entity: { type: String, required: true, index: true },
+    entityId: { type: String },
+    details: { type: Schema.Types.Mixed },
+    ipAddress: { type: String },
+    userAgent: { type: String }
+  },
+  { timestamps: { createdAt: true, updatedAt: false } }
+);
+
+AuditLogSchema.index({ createdAt: -1 });
+
+export const AuditLog = mongoose.model<IAuditLog>('AuditLog', AuditLogSchema);
